@@ -259,6 +259,7 @@ export default {
     }
     .save_piggy{
         width: 100%;
+        height: auto;
     }
 
     .save_box_name{
