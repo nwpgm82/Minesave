@@ -2,7 +2,7 @@
 <div class="profile">
     <div class="profile_bg">
         <img :src="authenticatedUser.photoURL" alt="" class="profile_img">
-        <!-- <img  :src="authenticatedUser.photoURL" alt="" style="display:block;margin:auto;width:160px;height:160px;border-radius:50%"> -->
+        <!-- <img :src="authenticatedUser.photoURL" alt="" style="display:block;margin:auto;width:160px;height:160px;border-radius:50%"> -->
     </div>
     <div class="profile_detail">
         <div class="profile_name_box">
@@ -12,7 +12,8 @@
             <a-progress type="circle" :stroke-color="{'0%': '#ba1e68','100%': '#5643fd',}" :percent="(userData.money*100)/7290" :width="90" :strokeWidth="10" class="profile_circle" :format="percent => percent.toFixed(2) + '%'" />
         </div>
         <div class="profile_money_box">
-            <p class="profile_money">Total : {{userData.money}} Baht</p>
+            <p class="profile_money" v-show="piggynoShow">ไม่มีกระปุก...</p>
+            <p class="profile_money" v-show="piggyShow">Total : {{userData.money}} Baht</p>
         </div>
         <div class="profile_piggy_box">
             <nuxt-link :to="`/piggy/${authenticatedUser.uid}`"><button class="profile_piggy_btn profile_piggy_btn_color">Go to Piggy</button></nuxt-link>
@@ -34,7 +35,9 @@ export default {
             uid: this.$route.params.profile,
             authenticatedUser: {},
             profile: [],
-            userData: {}
+            userData: {},
+            piggynoShow : false,
+            piggyShow : false
         }
     },
     methods: {
@@ -50,12 +53,13 @@ export default {
                         if (doc.exists) {
                             // console.log("Document data:", doc.data());
                             this.userData = doc.data()
+                            this.piggyShow = true
                             // console.log("userData : ", this.userData)
                         } else {
                             // doc.data() will be undefined in this case
                             console.log("No such document!");
-                            this.showData = false
-                            this.NoshowData = true
+                            console.log(this.userData)
+                            this.piggynoShow = true
                         }
                     }).catch((error) => {
                         console.log("Error getting document:", error);
@@ -87,7 +91,7 @@ export default {
 }
 
 .profile_bg {
-    margin-top: 60px;
+    margin: 60px auto 0 auto;
     width: 100%;
     height: 300px;
     position: relative;
@@ -190,6 +194,76 @@ export default {
     -o-transition: all .4s ease-in-out;
     -webkit-transition: all .4s ease-in-out;
     transition: all .4s ease-in-out;
+}
+
+@media screen and (max-width: 1024px) {
+    .profile {
+        height: 1366px;
+    }
+
+    .profile_bg {
+        width: 82%;
+    }
+
+    .profile_img {
+        left: 328px;
+        right: 328px
+    }
+}
+
+@media screen and (max-width: 1023px) {
+    .profile {
+        width: 100%;
+    }
+
+    .profile_img {
+        left: 235px;
+        right: 235px;
+    }
+
+    .profile_detail {
+        width: 100%;
+    }
+
+    .profile_circle_box {
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 414px) {
+    .profile {
+        height: 100%;
+    }
+
+    .profile_bg {
+        width: 95%;
+    }
+
+    .profile_img {
+        left: 118px;
+        right: 118px;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .profile_img {
+        left: 99px;
+        right: 99px;
+    }
+}
+
+@media screen and (max-width: 360px) {
+    .profile_img {
+        left: 91px;
+        right: 91px;
+    }
+}
+
+@media screen and (max-width: 320px) {
+    .profile_img {
+        left: 72px;
+        right: 72px;
+    }
 }
 </style><style>
 .profile_circle .ant-progress-circle {

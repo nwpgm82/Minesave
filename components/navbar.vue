@@ -271,7 +271,7 @@ button:hover {
 div .navbar_profileDropdown {
 
     width: 240px !important;
-    border-radius: 0 0 4px 4px;
+    border-radius: 0 0 10px 10px;
     overflow: hidden;
 }
 
