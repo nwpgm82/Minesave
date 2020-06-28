@@ -1,6 +1,6 @@
 <template>
   <div class="bottombar">
-      <p>Copyright © 2020 Project M Thailand All right reserved.</p>
+      <p>Copyright © 2020 Minesave Thailand All right reserved.</p>
   </div>
 </template>
 

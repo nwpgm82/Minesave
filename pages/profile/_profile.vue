@@ -36,8 +36,8 @@ export default {
             authenticatedUser: {},
             profile: [],
             userData: {},
-            piggynoShow : false,
-            piggyShow : false
+            piggynoShow: false,
+            piggyShow: false
         }
     },
     methods: {
@@ -121,6 +121,7 @@ export default {
     left: 420px;
     right: 420px;
     margin: auto;
+    background: white;
     box-shadow: 0 2px 5px 0 #000000;
 }
 
