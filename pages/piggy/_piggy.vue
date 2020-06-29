@@ -50,7 +50,7 @@ import {
     db
 } from "@/plugins/firebaseConfig.js";
 export default {
-    layout: 'main',
+    layout: 'main2',
     data() {
         return {
             uid: this.$route.params.piggy,
@@ -284,10 +284,11 @@ export default {
     border: none;
     cursor: pointer;
     transition: 0.3s;
+    box-shadow: 0 4px 15px 0 #000000;
 }
 
 .save_btn_del:hover {
-    background: rgb(150, 0, 0);
+    background: rgb(200, 0, 0);
 }
 
 .save_btn_create {

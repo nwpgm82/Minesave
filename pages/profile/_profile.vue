@@ -29,7 +29,7 @@ import {
     db
 } from "@/plugins/firebaseConfig.js";
 export default {
-    layout: 'main',
+    layout: 'main2',
     data() {
         return {
             uid: this.$route.params.profile,
@@ -237,33 +237,34 @@ export default {
     }
 
     .profile_bg {
-        width: 95%;
+        width: 100%;
     }
 
     .profile_img {
-        left: 118px;
-        right: 118px;
+        top: 204px;
+        left: 127px;
+        right: 127px;
     }
 }
 
 @media screen and (max-width: 400px) {
     .profile_img {
-        left: 99px;
-        right: 99px;
+        left: 108px;
+        right: 108px;
     }
 }
 
 @media screen and (max-width: 360px) {
     .profile_img {
-        left: 91px;
-        right: 91px;
+        left: 100px;
+        right: 100px;
     }
 }
 
 @media screen and (max-width: 320px) {
     .profile_img {
-        left: 72px;
-        right: 72px;
+        left: 80px;
+        right: 80px;
     }
 }
 </style><style>

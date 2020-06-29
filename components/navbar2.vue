@@ -1,5 +1,5 @@
 <template>
-<div class="navbar" :class="{ 'scrolled': !view.atTopOfPage }">
+<div class="navbar">
     <div class="navbar_container">
         <div class="navbar_logo">
             <p class="navbar_logo_text">Minesave</p>
@@ -44,7 +44,7 @@
                                 </a-menu-item>
                                 <a-menu-item key="1" @click="signOut()" class="navbar_profileDropdown_signOut">
                                     <div style="padding:2px 8px">
-                                        <p class="navbar_profileDropdown_signOut_text">Logout</p>
+                                        <p class="navbar_profileDropdown_logout">Sign out</p>
                                     </div>
                                 </a-menu-item>
                             </a-menu>
@@ -97,9 +97,6 @@ import {
 export default {
     data() {
         return {
-            view: {
-                atTopOfPage: true
-            },
             navbar_ul_show: false,
             name: '',
             authenticatedUser: null,
@@ -108,20 +105,7 @@ export default {
             moneyData: [],
         }
     },
-    beforeMount() {
-        window.addEventListener('scroll', this.handleScroll);
-    },
     methods: {
-        handleScroll() {
-            // when the user scrolls, check the pageYOffset
-            if (window.pageYOffset > 0) {
-                // user is scrolled
-                if (this.view.atTopOfPage) this.view.atTopOfPage = false
-            } else {
-                // user is at top of page
-                if (!this.view.atTopOfPage) this.view.atTopOfPage = true
-            }
-        },
         navbar_toggle() {
             this.navbar_ul_show = !this.navbar_ul_show
         },
@@ -147,7 +131,7 @@ export default {
                 // ...
                 // console.log('token : ', token)
                 // console.log('user : ', user.uid)
-                location.assign(`/profile/${user.uid}`)
+                location.replace(`/profile/${user.uid}`)
             }).catch((error) => {
                 // Handle Errors here.
                 var errorCode = error.code;
@@ -190,18 +174,13 @@ export default {
 .navbar {
     width: 100%;
     height: 60px;
-    background: transparent;
     position: fixed;
     top: 0;
     z-index: 999;
     transition: 0.3s;
-}
-
-.navbar.scrolled {
     background: #0c164f;
     box-shadow: 0px 2px 4px 0px #00000050;
 }
-
 .navbar_toggle {
     display: none;
     width: 24px;
@@ -256,7 +235,7 @@ a li {
     transition: 0.3s;
 }
 
-a:hover li {
+a:hover li{
     color: rgb(200, 200, 200);
 }
 
@@ -322,7 +301,7 @@ div .navbar_profileDropdown {
     text-overflow: ellipsis;
 }
 
-.navbar_profileDropdown_signOut_text {
+.navbar_profileDropdown_logout {
     font-size: 16px;
     color: white;
     font-weight: 500;
@@ -392,6 +371,7 @@ div .slide-up-leave {
         margin: auto;
     }
 
+
     .navbar_ul {
         display: none;
     }
@@ -399,12 +379,12 @@ div .slide-up-leave {
     .navbar_ul_mobile {
         display: block;
         padding: 0;
-        background: #22003F;
+        background: #0c164f;
         transition: 0.3s;
         box-shadow: 0px 2px 4px 0px #00000050;
     }
 
-    .navbar.scrolled .navbar_ul_mobile {
+    .navbar.scrolled .navbar_ul_mobile{
         background: #0c164f;
     }
 
@@ -416,11 +396,11 @@ div .slide-up-leave {
         transition: 0.3s;
     }
 
-    li:hover {
-        background-color: #370068;
+    li:hover{
+        background-color: #0c164f;
     }
 
-    button {
+    button{
         text-align: center;
     }
 

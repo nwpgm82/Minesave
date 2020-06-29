@@ -19,6 +19,9 @@ export default {
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
+      { name:'theme-color', content:'#22003F'},
+      { name: 'msapplication-navbutton-color', content: '#22003F'},
+      { name: 'apple-mobile-web-app-status-bar-style', content: '#22003F'},
       { hid: 'description', name: 'description', content: process.env.npm_package_description || '' }
     ],
     link: [

@@ -20,7 +20,7 @@ export default {
 .bottombar{
     width: 100%;
     height: 60px;
-    background: #0c164f;
+    background: #0c164f;    
     position:relative;
     bottom: 0;
     padding: 16px 8px;

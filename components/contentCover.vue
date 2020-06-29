@@ -9,7 +9,7 @@
 
 <script>
 export default {
-
+   
 }
 </script>
 
@@ -21,14 +21,19 @@ export default {
 }
 
 .cover {
-    margin-top: 60px;
     width: 100%;
     height: 400px;
-    background: #0c164f;
+    background: url("~@/assets/img/profile_cover.jpg");
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
     box-shadow: 0px 2px 4px 0px #00000050;
     display: flex;
     justify-content: center;
     align-items: center;
+
 }
 
 .cover_topic {
@@ -45,7 +50,7 @@ export default {
     font-weight: 500;
     font-style: italic;
     color: white;
-    text-shadow: 4px 4px #000000;
+    text-shadow: 4px 2px #000000;
     text-align: center;
 }
 </style>

@@ -1,17 +1,17 @@
 <template>
 <div>
-    <navbar/>
+    <navbar2/>
     <nuxt/>
     <bottombar/>
 </div>
 </template>
 
 <script>
-import navbar from '@/components/navbar'
+import navbar2 from '@/components/navbar2'
 import bottombar from '@/components/bottombar'
 export default {
     components:{
-        navbar,
+        navbar2,
         bottombar
     }
 }
