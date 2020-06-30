@@ -14,7 +14,7 @@
                 <a href="/">
                     <li>Home</li>
                 </a>
-                <a href="/">
+                <a href="#about">
                     <li>About me</li>
                 </a>
                 <a v-if="authenticatedUser == null" v-show="signInShow">
@@ -58,7 +58,7 @@
                 <a href="/">
                     <li>Home</li>
                 </a>
-                <a href="/">
+                <a href="#about">
                     <li>About me</li>
                 </a>
                 <a v-if="authenticatedUser == null" v-show="signInShow">
@@ -363,6 +363,12 @@ div .slide-up-leave {
 @media screen and (max-width: 1024px) {
     .navbar_menu {
         width: 40%;
+    }
+}
+
+@media screen and (max-width: 1023px){
+    .navbar_container{
+        width: 92%;
     }
 }
 

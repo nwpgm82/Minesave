@@ -26,6 +26,10 @@ export default {
     font-family: 'Kanit', sans-serif;
 }
 
+html{
+    scroll-behavior: smooth;
+}
+
 body{
     background: #090f3a;
 }
