@@ -178,7 +178,7 @@ export default {
     top: 0;
     z-index: 999;
     transition: 0.3s;
-    background: #0c164f;
+    background: #19002A;
     box-shadow: 0px 2px 4px 0px #00000050;
 }
 .navbar_toggle {
@@ -385,13 +385,13 @@ div .slide-up-leave {
     .navbar_ul_mobile {
         display: block;
         padding: 0;
-        background: #0c164f;
+        background: #19002A;
         transition: 0.3s;
         box-shadow: 0px 2px 4px 0px #00000050;
     }
 
     .navbar.scrolled .navbar_ul_mobile{
-        background: #0c164f;
+        background: #19002A;
     }
 
     li {
@@ -403,7 +403,7 @@ div .slide-up-leave {
     }
 
     li:hover{
-        background-color: #0c164f;
+        background-color: #330055;
     }
 
     button{

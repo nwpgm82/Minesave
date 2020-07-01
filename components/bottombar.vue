@@ -55,13 +55,13 @@ export default {
     width: 100%;
     height: auto;
     padding: 16px 0;
-    background-color: #0C164F;
+    background-color: #19002A;
 }
 
 .bottombar_logo {
     width: 80px;
     height: 80px;
-    opacity: 0.5;
+    opacity: 1;
 }
 
 .bottombar_content{

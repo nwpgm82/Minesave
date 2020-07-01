@@ -31,7 +31,7 @@ html{
 }
 
 body{
-    background: #090f3a;
+    background: rgb(35, 0, 58);
 }
 
 

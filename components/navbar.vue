@@ -198,7 +198,7 @@ export default {
 }
 
 .navbar.scrolled {
-    background: #0c164f;
+    background-color: #19002A;
     box-shadow: 0px 2px 4px 0px #00000050;
 }
 
@@ -375,6 +375,7 @@ div .slide-up-leave {
 @media screen and (max-width: 767px) {
     .navbar {
         padding: 0;
+        background-color: #19002a9d;
     }
 
     .navbar_container {
@@ -405,13 +406,13 @@ div .slide-up-leave {
     .navbar_ul_mobile {
         display: block;
         padding: 0;
-        background: #22003F;
+        background: #19002a9d;
         transition: 0.3s;
         box-shadow: 0px 2px 4px 0px #00000050;
     }
 
     .navbar.scrolled .navbar_ul_mobile {
-        background: #0c164f;
+        background: #19002A;
     }
 
     li {
@@ -423,11 +424,23 @@ div .slide-up-leave {
     }
 
     li:hover {
-        background-color: #370068;
+        background-color: #19002ab0;
+    }
+
+    .navbar.scrolled li:hover{
+        background-color: #330055;
     }
 
     button {
         text-align: center;
+    }
+
+    .navbar_profileDropdown_signOut{
+        background: rgba(200, 1, 0, 0.7);
+    }
+
+    .navbar.scrolled .navbar_profileDropdown_signOut{
+        background: rgba(200, 1, 1);
     }
 
 }
