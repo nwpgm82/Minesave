@@ -1,7 +1,6 @@
 <template>
 <div>
     <div class="save" v-if="authenticatedUser.uid == uid" v-show="showData">
-        <!-- {{userData[0].moneyData}} -->
         <p class="save_topic">Piggy Bank</p>
         <img src="~/assets/img/piggy.png" alt="" class="save_piggy">
         <div class="save_box_name">
@@ -69,17 +68,12 @@ export default {
             await firebase.auth().onAuthStateChanged(user => {
                 if (user) {
                     this.authenticatedUser = user
-                    // console.log("Auth : ", this.authenticatedUser)
                     this.profile.push(this.authenticatedUser)
-                    // console.log("Profile : ", this.profile)
                     var docRef = db.collection("Piggy").doc(this.authenticatedUser.uid);
                     docRef.get().then((doc) => {
                         if (doc.exists) {
-                            // console.log("Document data:", doc.data());
                             this.userData = doc.data()
-                            // console.log("userData : ", this.userData)
                         } else {
-                            // doc.data() will be undefined in this case
                             console.log("No such document!");
                             this.showData = false
                             this.NoshowData = true
@@ -87,7 +81,6 @@ export default {
                     }).catch((error) => {
                         console.log("Error getting document:", error);
                     });
-                    // location.replace(`/piggy/${this.authenticatedUser.uid}`)
                 } else {
                     console.log('Not signIn')
                     location.replace('/')
@@ -96,9 +89,6 @@ export default {
                     this.show404 = true
                 }
             })
-            // if (await this.authenticatedUser.uid != this.uid) {
-            //     location.replace(`/piggy/${this.authenticatedUser.uid}`)
-            // }
         },
         click(i, auth) {
             if (this.userData.moneyData[i - 1].status == "#0c164f") {
@@ -108,8 +98,9 @@ export default {
                     db.collection("Piggy").doc(auth).set({
                             name: this.profile[0].displayName,
                             email: this.profile[0].email,
+                            photo: this.profile[0].photoURL,
                             moneyData: this.userData.moneyData,
-                            money: this.userData.money
+                            money: this.userData.money,
                         })
                         .then(() => {
                             console.log("Document successfully written!");
@@ -175,10 +166,10 @@ export default {
                     console.log('OK');
                     db.collection("Piggy").doc(auth).delete().then(() => {
                         console.log("Document successfully deleted!");
-                         location.reload()
+                        location.reload()
                     }).catch((error) => {
                         console.error("Error removing document: ", error);
-                    });     
+                    });
                 },
                 onCancel() {
                     console.log('Cancel');
